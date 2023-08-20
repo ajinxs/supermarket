@@ -16,7 +16,7 @@ const Header = () => {
   }
 
   return (
-    <header className='fixed shadow-md w-full h-16 px-2 md:px-4'>
+    <header className='fixed shadow-md w-full h-16 px-2 md:px-4 z-50 bg-white'>
         {/* DESKTOP */}
         <div className='flex items-center h-full justify-between'>
             <Link to={""}>
@@ -43,9 +43,9 @@ const Header = () => {
                   
                   {
                     showMenu && (
-                    <div className='absolute right-2 bg-white py-3 px-2 shadow drop-shadow-md'>
-                      <p className='whitespace-nowrap'>New Products</p>
-                      <p className='whitespace-nowrap'>Login</p>
+                    <div className='absolute right-2 bg-white py-3 px-2 shadow drop-shadow-md flex flex-col'>
+                      <Link to={"newproduct"}className='whitespace-nowrap cursor-pointer'>New Products</Link>
+                      <Link to={"login"} className='whitespace-nowrap cursor-pointer'>Login</Link>
                     </div> )
                   }
                   
