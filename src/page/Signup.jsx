@@ -32,12 +32,24 @@ const Signup = () => {
     }
 
     //handle submit of the form
-    const handleSubmit = (e) => {
+    console.log(process.env.REACT_APP_SERVER_DOMAIN)
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const {firstname, lastname, email, password} = data;
         if(firstname && lastname && email && password){
+            
+            const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/signup`,{
+                method : "POST",
+                headers : {
+                    "content-type" : "application/json"
+                },
+                body : JSON.stringify(data)
+            })
+            
+            const dataRes = await fetchData.json();
+            console.log(dataRes)
             alert("Successful")
-            navigator("/login");
+            //navigator("/login");
         }else{
             alert("Error")
         }
